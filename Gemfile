@@ -72,5 +72,8 @@ group :test do
 end
 
 gem "graphql"
+gem "devise"
+gem "rack-cors"
+gem "devise-jwt"
 
 gem "graphiql-rails", group: :development
