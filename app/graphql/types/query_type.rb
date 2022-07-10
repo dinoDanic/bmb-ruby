@@ -11,7 +11,11 @@ module Types
     field :test_field, String, null: false,
       description: "An example field added by the generator"
     def test_field
+      raise GraphQL::ExecutionError, 'Missing bearer token' if context[:current_user].nil?
+      puts(context[:current_user].id)
+
       "Hello World!"
     end
+
   end
 end
