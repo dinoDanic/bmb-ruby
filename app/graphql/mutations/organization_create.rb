@@ -12,8 +12,11 @@ module Mutations
   
       def resolve(name:, address:, oib:)
         raise GraphQL::ExecutionError, 'Missing bearer token' if context[:current_user].nil?
-        organization = Organization.create(name: name, address: address, oib: oib, user_id: context[:current_user].id)
+        organization = Organization.create(name: name, address: address, oib: oib)
         
+
+        ll = OrganizationUserJoin.create(organization_id: organization.id, user_id: context[:current_user].id)
+        organization
       end
   
     end

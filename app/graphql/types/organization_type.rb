@@ -8,7 +8,6 @@ module Types
       field :oib, String
       field :created_at, GraphQL::Types::ISO8601DateTime
       field :updated_at, GraphQL::Types::ISO8601DateTime
-      field :user_id, Types::UserType
 
     end
   end

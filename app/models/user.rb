@@ -5,6 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable, :trackable,
          :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist
 
-  has_many :organizations
-
+  has_many :organization_user_join, foreign_key: :user_id
 end

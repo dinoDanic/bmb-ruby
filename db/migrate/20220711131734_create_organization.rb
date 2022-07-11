@@ -6,9 +6,6 @@ class CreateOrganization < ActiveRecord::Migration[7.0]
       t.string :oib, null: false
 
       t.timestamps
-
-      t.belongs_to :user,  foreign_key: true
-
     end
   end
 end

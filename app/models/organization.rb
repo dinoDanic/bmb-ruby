@@ -1,5 +1,4 @@
 class Organization < ApplicationRecord
-    belongs_to :user
-
+    has_many :organization_user_join, foreign_key: :organization_id
 end
   
