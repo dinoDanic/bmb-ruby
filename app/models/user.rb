@@ -6,4 +6,5 @@ class User < ApplicationRecord
          :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist
 
   has_many :organization_user_join, foreign_key: :user_id
+  has_many :organizations, through: :organization_user_join
 end

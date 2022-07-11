@@ -4,6 +4,7 @@ class CreateOrganization < ActiveRecord::Migration[7.0]
       t.string :name, null: false
       t.string :address, null: false
       t.string :oib, null: false
+      t.boolean :active, null: false, default: true
 
       t.timestamps
     end
