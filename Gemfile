@@ -75,5 +75,5 @@ gem "graphql"
 gem "devise"
 gem "rack-cors"
 gem "devise-jwt"
-
+gem "letter_opener", group: :development
 gem "graphiql-rails", group: :development
