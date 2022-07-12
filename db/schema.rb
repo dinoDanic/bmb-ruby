@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_12_174520) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_12_192407) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_12_174520) do
     t.string "address", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "organization_customers", force: :cascade do |t|
+    t.bigint "organization_id", null: false
+    t.bigint "customer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_organization_customers_on_customer_id"
+    t.index ["organization_id"], name: "index_organization_customers_on_organization_id"
   end
 
   create_table "organization_user_joins", force: :cascade do |t|
@@ -88,6 +97,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_12_174520) do
 
   add_foreign_key "customer_office_joins", "customers"
   add_foreign_key "customer_office_joins", "offices"
+  add_foreign_key "organization_customers", "customers"
+  add_foreign_key "organization_customers", "organizations"
   add_foreign_key "organization_user_joins", "organizations"
   add_foreign_key "organization_user_joins", "users"
 end
